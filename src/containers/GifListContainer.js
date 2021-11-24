@@ -24,10 +24,11 @@ class GifListContainer extends Component {
     }
 
     fetchGIFs = (query = "dolphins") => {
-        fetch(`https://media3.giphy.com/media/l3fQbSe8heZeznfAk/giphy.gif?cid=d057e149nkedmktkfqnq5whnddx5oqpci30x5zjywci31966&rid=giphy.gif&ct=g&limit=3`)
-        then(res => res.json())
+        fetch(`https://api.giphy.com/v1/gifs/search?q=${query}&api_key=YAkvRsSSbx8NLZeQcX2Mww1uoz4EFBLB=&rating=g`)
+        .then(res => res.json())
         .then(({data}) => {
-            this.setState({ gifs: data.map( gif => ({ url: gif.images.original.url }) ) })
+            console.log(data);
+           // this.setState({ gifs: data.map( gif => ({ url: gif.images.original.url }) ) })
         })
 
     }
